@@ -756,7 +756,7 @@ The grouped split is a critical graded engineering requirement.
 
 ### EDIT
 
-using [colap](https://colab.research.google.com/) 
+using [colab](https://colab.research.google.com/) 
 
 ```text
 scripts/train_classifier.py
@@ -918,10 +918,11 @@ This includes an Arabic clitic-related case that breaks naive implementations.
 
 ---
 
-## Lab 3B — Step 2: Fine-tune NER
+## Lab 3B — Step 2: Fine-tune NER. 
 
 ### EDIT
-
+using [colab](https://colab.research.google.com/) 
+**
 ```text
 scripts/train_ner.py
 ```
@@ -1131,6 +1132,7 @@ one-sentence implication of evaluating only on MSA
 ---
 
 ## Lab 4 — Step 3: Clitic segmentation for NER
+using [colab](https://colab.research.google.com/) 
 
 ### EDIT
 
@@ -1159,6 +1161,7 @@ Target improvement is at least about **+4 recall points** for LOCATION.
 ---
 
 ## Lab 4 — Step 4: Arabic model bake-off
+using [colab](https://colab.research.google.com/) 
 
 ### EDIT
 
