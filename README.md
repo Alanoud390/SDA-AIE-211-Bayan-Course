@@ -935,6 +935,30 @@ uses align_labels()
 fine-tunes AutoModelForTokenClassification
 evaluates with seqeval at entity level
 saves the NER artefact
+
+
+
+
+NER Dataset (CoNLL)
+        ↓
+Load Tokenizer / Pretrained Checkpoint
+        ↓
+Tokenize Words
+        ↓
+align_labels()
+        ↓
+AutoModelForTokenClassification
+        ↓
+Fine-tune on Train Split
+        ↓
+Validation
+        ↓
+seqeval Entity-Level Metrics
+        ↓
+Frozen/Test Evaluation
+        ↓
+Save NER Model + Tokenizer
+artifacts/ner
 ```
 
 ### RUN
