@@ -2,9 +2,6 @@
 ## SDA-AIE-211 — Natural Language Processing with Transformers
 
 > **From raw bilingual text to a working NLP service — one lab at a time.**
->
-> في هذا المشروع ما راح نبني 7 تمارين منفصلة. راح نطوّر **Bayan** خطوة بخطوة: من raw Arabic/English text، إلى preprocessing وTransformers وfine-tuning وsemantic search وevaluation، ثم نختم بخدمة FastAPI محسّنة وقابلة للقياس.
-
 ---
 
 # 🚀 What are we building?
