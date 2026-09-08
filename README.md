@@ -1012,23 +1012,21 @@ pytest tests/test_qa.py -q
 
 ## Lab 3B — Step 4: QA smoke set
 
-QA checkpoint
-     +
-qa_smoke_set.json
+Provided fine-tuned QA checkpoint
+        +
+12-question smoke set
         ↓
 Question + Context
         ↓
-Tokenizer
+QA model
         ↓
-QA Model
-        ↓
-start_logits + end_logits
+Start / End logits
         ↓
 best_span() من Step 3
         ↓
-Answer span OR None
+Best span OR None
         ↓
-نحسب 9/9 و 3/3
+9/9 spans + 3/3 nulls
 
 ### EDIT
 
