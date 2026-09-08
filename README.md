@@ -716,7 +716,7 @@ Write baseline macro-F1 in:
 BENCHMARKS.md
 ```
 
-Reference output is around `0.71`; your report should contain **your run**, not copied reference numbers.
+Reference output is around `0.71`; your report should contain **your run**, not copied reference numbers : )
 
 ---
 
@@ -756,6 +756,8 @@ The grouped split is a critical graded engineering requirement.
 
 ### EDIT
 
+using [colap](https://colab.research.google.com/) 
+
 ```text
 scripts/train_classifier.py
 ```
@@ -768,7 +770,60 @@ uses the Lab-1 tokenizer/checkpoint decision
 fine-tunes the classifier
 evaluates it
 saves a re-runnable artefact
+
+
+
+bayan_feedback.csv
+        ↓
+Grouped Split from Step 2
+(train / validation / test)
+        ↓
+Load Lab-1 Checkpoint
+CAMeL-Lab/bert-base-arabic-camelbert-mix
+        ↓
+Load Matching Tokenizer
+        ↓
+Tokenize Feedback Text
+(truncation, max_length=256)
+        ↓
+Load Pretrained Transformer
++ New Classification Head
+        ↓
+Fine-tune on Train Split
+with Hugging Face Trainer
+        ↓
+Evaluate on Validation Split
+Macro-F1 + Accuracy
+        ↓
+Select / keep best checkpoint
+        ↓
+Evaluate once on Frozen Test Split
+        ↓
+Save Model + Tokenizer
+artifacts/topic_classifier
+        ↓
+Compare Transformer Result
+against TF-IDF + LinearSVC Baseline
+
+
+
+
+
 ```
+
+
+``` Python 3.12 compatibility
+!apt-get update -qq
+!apt-get install -y python3.12 python3.12-venv python3.12-dev
+
+!python3.12 -m venv /content/venv312
+!/content/venv312/bin/python -m pip install --upgrade pip setuptools wheel
+
+!/content/venv312/bin/python --version
+
+after run>> Python 3.12.x ?
+```
+
 
 ### RUN LOCALLY / GPU MACHINE
 
