@@ -1012,6 +1012,24 @@ pytest tests/test_qa.py -q
 
 ## Lab 3B — Step 4: QA smoke set
 
+Load 12 questions
+        ↓
+For each question:
+        ↓
+Question + Context
+        ↓
+QA model
+        ↓
+Start logits + End logits
+        ↓
+best_span()
+        ↓
+Predicted Answer / None
+        ↓
+Compare with expected answer
+        ↓
+Count correct cases
+
 ### EDIT
 
 ```text
