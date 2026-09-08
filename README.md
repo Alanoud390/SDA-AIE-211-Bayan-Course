@@ -1012,23 +1012,23 @@ pytest tests/test_qa.py -q
 
 ## Lab 3B — Step 4: QA smoke set
 
-Load 12 questions
-        ↓
-For each question:
+QA checkpoint
+     +
+qa_smoke_set.json
         ↓
 Question + Context
         ↓
-QA model
+Tokenizer
         ↓
-Start logits + End logits
+QA Model
         ↓
-best_span()
+start_logits + end_logits
         ↓
-Predicted Answer / None
+best_span() من Step 3
         ↓
-Compare with expected answer
+Answer span OR None
         ↓
-Count correct cases
+نحسب 9/9 و 3/3
 
 ### EDIT
 
