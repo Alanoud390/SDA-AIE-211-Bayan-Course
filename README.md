@@ -1195,7 +1195,12 @@ python -c "from bayan.preprocessing.arabic import segment; print(segment('انق
 
 ['انقطعت', 'ال+', 'كهرباء', 'و+', 'ب+', 'ال+', 'رياض', 'تأخرت', 'ال+', 'صيانة']
 
-Then wire the segmentation choice consistently into the NER data/training path.
+
+
+-- Better to check:
+
+Re-evaluate the Lab 3B Part 2 NER model with the segmentation path and record the **LOCATION recall delta**.
+
 using [colab](https://colab.research.google.com/) 
 
 add dependencies:
@@ -1208,13 +1213,13 @@ or
 
 --------
 if fail git in colab run
- 
+```
 !pwd
 !ls 
 %cd /content/DAY1-LAP1-LAP2
 !git pull
+```
 ---------
-Re-evaluate the Lab 3B Part 2 NER model with the segmentation path and record the **LOCATION recall delta**.
 
 ### RECORD
 
