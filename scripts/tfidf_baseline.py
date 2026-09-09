@@ -47,6 +47,8 @@ def main():
         average="macro",
     )
 
+
+#test
     print(f"Train rows: {len(train_df)}")
     print(f"Test rows: {len(test_df)}")
     print(f"Baseline macro-F1: {macro_f1:.4f}")
