@@ -1198,7 +1198,7 @@ python -c "from bayan.preprocessing.arabic import segment; print(segment('انق
 Then wire the segmentation choice consistently into the NER data/training path.
 using [colab](https://colab.research.google.com/) 
 
-Re-evaluate the Day-2 NER model with the segmentation path and record the **LOCATION recall delta**.
+Re-evaluate the Lab 3B Part 2 NER model with the segmentation path and record the **LOCATION recall delta**.
 
 ### RECORD
 
@@ -1212,6 +1212,10 @@ Target improvement is at least about **+4 recall points** for LOCATION.
 
 ## Lab 4 — Step 4: Arabic model bake-off
 using [colab](https://colab.research.google.com/) 
+
+add dependencies:
+!pip install camel-tools
+!camel_data -i defaults
 
 ### EDIT
 
