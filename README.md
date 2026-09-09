@@ -1100,7 +1100,11 @@ DECISIONS.md
 install CAMeL tools:
 
 ```bash
-pip install camel-tools
+camel_data -i defaults
+
+or
+
+camel_data -i all
 ```
 
 ---
