@@ -2,9 +2,6 @@
 ## SDA-AIE-211 — Natural Language Processing with Transformers
 
 > **From raw bilingual text to a working NLP service — one lab at a time.**
->
-> في هذا المشروع ما راح نبني 7 تمارين منفصلة. راح نطوّر **Bayan** خطوة بخطوة: من raw Arabic/English text، إلى preprocessing وTransformers وfine-tuning وsemantic search وevaluation، ثم نختم بخدمة FastAPI محسّنة وقابلة للقياس.
-
 ---
 
 # 🚀 What are we building?
@@ -725,7 +722,7 @@ Write baseline macro-F1 in:
 BENCHMARKS.md
 ```
 
-Reference output is around `0.71`; your report should contain **your run**, not copied reference numbers.
+Reference output is around `0.71`; your report should contain **your run**, not copied reference numbers : )
 
 ---
 
@@ -765,6 +762,8 @@ The grouped split is a critical graded engineering requirement.
 
 ### EDIT
 
+using [colab](https://colab.research.google.com/) 
+
 ```text
 scripts/train_classifier.py
 ```
@@ -777,7 +776,60 @@ uses the Lab-1 tokenizer/checkpoint decision
 fine-tunes the classifier
 evaluates it
 saves a re-runnable artefact
+
+
+
+bayan_feedback.csv
+        ↓
+Grouped Split from Step 2
+(train / validation / test)
+        ↓
+Load Lab-1 Checkpoint
+CAMeL-Lab/bert-base-arabic-camelbert-mix
+        ↓
+Load Matching Tokenizer
+        ↓
+Tokenize Feedback Text
+(truncation, max_length=256)
+        ↓
+Load Pretrained Transformer
++ New Classification Head
+        ↓
+Fine-tune on Train Split
+with Hugging Face Trainer
+        ↓
+Evaluate on Validation Split
+Macro-F1 + Accuracy
+        ↓
+Select / keep best checkpoint
+        ↓
+Evaluate once on Frozen Test Split
+        ↓
+Save Model + Tokenizer
+artifacts/topic_classifier
+        ↓
+Compare Transformer Result
+against TF-IDF + LinearSVC Baseline
+
+
+
+
+
 ```
+
+
+``` Python 3.12 compatibility
+!apt-get update -qq
+!apt-get install -y python3.12 python3.12-venv python3.12-dev
+
+!python3.12 -m venv /content/venv312
+!/content/venv312/bin/python -m pip install --upgrade pip setuptools wheel
+
+!/content/venv312/bin/python --version
+
+after run>> Python 3.12.x ?
+```
+
 
 ### RUN LOCALLY / GPU MACHINE
 
@@ -872,10 +924,11 @@ This includes an Arabic clitic-related case that breaks naive implementations.
 
 ---
 
-## Lab 3B — Step 2: Fine-tune NER
+## Lab 3B — Step 2: Fine-tune NER. 
 
 ### EDIT
-
+using [colab](https://colab.research.google.com/) 
+**
 ```text
 scripts/train_ner.py
 ```
@@ -888,6 +941,30 @@ uses align_labels()
 fine-tunes AutoModelForTokenClassification
 evaluates with seqeval at entity level
 saves the NER artefact
+
+
+
+
+NER Dataset (CoNLL)
+        ↓
+Load Tokenizer / Pretrained Checkpoint
+        ↓
+Tokenize Words
+        ↓
+align_labels()
+        ↓
+AutoModelForTokenClassification
+        ↓
+Fine-tune on Train Split
+        ↓
+Validation
+        ↓
+seqeval Entity-Level Metrics
+        ↓
+Frozen/Test Evaluation
+        ↓
+Save NER Model + Tokenizer
+artifacts/ner
 ```
 
 ### RUN
@@ -944,6 +1021,22 @@ pytest tests/test_qa.py -q
 
 ## Lab 3B — Step 4: QA smoke set
 
+Provided fine-tuned QA checkpoint
+        +
+12-question smoke set
+        ↓
+Question + Context
+        ↓
+QA model
+        ↓
+Start / End logits
+        ↓
+best_span() من Step 3
+        ↓
+Best span OR None
+        ↓
+12/12 spans + 0/0 nulls
+
 ### EDIT
 
 ```text
@@ -961,8 +1054,8 @@ python scripts/qa_smoke.py
 ### TARGET
 
 ```text
-9/9 answerable questions → correct span
-3/3 unanswerable questions → answer=None
+12/12 answerable questions → correct span
+0/0 unanswerable questions → answer=None
 ```
 
 ---
@@ -1013,10 +1106,14 @@ DECISIONS.md
 
 ## Lab 4 — Setup
 
-If CAMeL data is not installed:
+install CAMeL tools:
 
 ```bash
 camel_data -i defaults
+
+or
+
+camel_data -i all
 ```
 
 ---
@@ -1098,9 +1195,40 @@ Complete:
 segment(text)
 ```
 
-Then wire the segmentation choice consistently into the NER data/training path.
+test segment using:
+python -c "from bayan.preprocessing.arabic import segment; print(segment('وبالرياض'))"
 
-Re-evaluate the Day-2 NER model with the segmentation path and record the **LOCATION recall delta**.
+['و+', 'ب+', 'ال+', 'رياض']
+
+python -c "from bayan.preprocessing.arabic import segment; print(segment('انقطعت الكهرباء وبالرياض تأخرت الصيانة'))"
+
+['انقطعت', 'ال+', 'كهرباء', 'و+', 'ب+', 'ال+', 'رياض', 'تأخرت', 'ال+', 'صيانة']
+
+
+
+-- Better to check:
+
+Re-evaluate the Lab 3B Part 2 NER model with the segmentation path and record the **LOCATION recall delta**.
+
+using [colab](https://colab.research.google.com/) 
+
+add dependencies:
+!pip install camel-tools
+!camel_data -i defaults
+
+or 
+
+!/content/venv312/bin/pip install camel-tools
+
+--------
+if fail git in colab run
+```
+!pwd
+!ls 
+%cd /content/DAY1-LAP1-LAP2
+!git pull
+```
+---------
 
 ### RECORD
 
@@ -1112,7 +1240,8 @@ Target improvement is at least about **+4 recall points** for LOCATION.
 
 ---
 
-## Lab 4 — Step 4: Arabic model bake-off
+## Lab 4 — Step 4: Arabic model bake-off. --Optional / Extra Practice. 
+using [colab](https://colab.research.google.com/) 
 
 ### EDIT
 
@@ -1186,7 +1315,9 @@ git push
 
 ---
 
-# 🔎 LAB 5 — Bilingual Semantic Search
+# 🔎 LAB 5 — Bilingual Semantic Search 
+
+كل الخطوات بنحتاج فيها كولاب الا اخر خطوة
 
 **Duration:** ~50 minutes  
 **Goal:** Build a versioned FAISS index over 20k historical cases, retrieve with a bi-encoder, re-rank with a cross-encoder, evaluate retrieval metrics, and tune honest no-result behaviour.
@@ -1236,6 +1367,14 @@ pin model/preprocessing versions in the manifest
 ```
 
 ### RUN CONTRACT TEST WHILE IMPLEMENTING
+
+in colab
+
+pip install sentence-transformers faiss-cpu pyarrow
+or
+!/content/venv312/bin/sentence-transformers faiss-cpu pyarrow
+
+then edit search/index
 
 ```bash
 pytest tests/test_search_contract.py -q
