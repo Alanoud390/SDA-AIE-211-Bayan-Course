@@ -1173,7 +1173,6 @@ one-sentence implication of evaluating only on MSA
 ---
 
 ## Lab 4 — Step 3: Clitic segmentation for NER
-using [colab](https://colab.research.google.com/) 
 
 ### EDIT
 
@@ -1187,7 +1186,17 @@ Complete:
 segment(text)
 ```
 
+test segment using:
+python -c "from bayan.preprocessing.arabic import segment; print(segment('وبالرياض'))"
+
+['و+', 'ب+', 'ال+', 'رياض']
+
+python -c "from bayan.preprocessing.arabic import segment; print(segment('انقطعت الكهرباء وبالرياض تأخرت الصيانة'))"
+
+['انقطعت', 'ال+', 'كهرباء', 'و+', 'ب+', 'ال+', 'رياض', 'تأخرت', 'ال+', 'صيانة']
+
 Then wire the segmentation choice consistently into the NER data/training path.
+using [colab](https://colab.research.google.com/) 
 
 Re-evaluate the Day-2 NER model with the segmentation path and record the **LOCATION recall delta**.
 
