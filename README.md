@@ -1306,7 +1306,9 @@ git push
 
 ---
 
-# 🔎 LAB 5 — Bilingual Semantic Search
+# 🔎 LAB 5 — Bilingual Semantic Search 
+
+كل الخطوات بنحتاج فيها كولاب الا اخر خطوة
 
 **Duration:** ~50 minutes  
 **Goal:** Build a versioned FAISS index over 20k historical cases, retrieve with a bi-encoder, re-rank with a cross-encoder, evaluate retrieval metrics, and tune honest no-result behaviour.
