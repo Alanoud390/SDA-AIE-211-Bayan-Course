@@ -23,6 +23,15 @@ By the end of the course, this repository should be able to:
 - ⚡ optimise inference with ONNX + INT8
 - 🌐 serve the final pipeline through FastAPI
 
+
+
+
+
+
+
+Affiliated with SDAIA Academy
+https://github.com/SDAIAAcademy
+
 ```text
 Raw Citizen Feedback
         ↓
