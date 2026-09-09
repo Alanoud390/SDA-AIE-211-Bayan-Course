@@ -1097,10 +1097,10 @@ DECISIONS.md
 
 ## Lab 4 — Setup
 
-If CAMeL data is not installed:
+install CAMeL tools:
 
 ```bash
-camel_data -i defaults
+pip install camel-tools
 ```
 
 ---
