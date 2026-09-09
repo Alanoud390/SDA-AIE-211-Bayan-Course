@@ -1231,7 +1231,7 @@ Target improvement is at least about **+4 recall points** for LOCATION.
 
 ---
 
-## Lab 4 — Step 4: Arabic model bake-off
+## Lab 4 — Step 4: Arabic model bake-off. --Optional / Extra Practice.
 using [colab](https://colab.research.google.com/) 
 
 ### EDIT
