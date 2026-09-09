@@ -1045,8 +1045,8 @@ python scripts/qa_smoke.py
 ### TARGET
 
 ```text
-9/9 answerable questions → correct span
-3/3 unanswerable questions → answer=None
+12/12 answerable questions → correct span
+0/0 unanswerable questions → answer=None
 ```
 
 ---
