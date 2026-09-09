@@ -1359,6 +1359,14 @@ pin model/preprocessing versions in the manifest
 
 ### RUN CONTRACT TEST WHILE IMPLEMENTING
 
+in colab
+
+pip install sentence-transformers faiss-cpu pyarrow
+or
+!/content/venv312/bin/sentence-transformers faiss-cpu pyarrow
+
+then edit search/index
+
 ```bash
 pytest tests/test_search_contract.py -q
 ```
