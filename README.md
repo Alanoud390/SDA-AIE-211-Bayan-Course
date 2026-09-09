@@ -1026,7 +1026,7 @@ best_span() من Step 3
         ↓
 Best span OR None
         ↓
-9/9 spans + 3/3 nulls
+12/12 spans + 0/0 nulls
 
 ### EDIT
 
