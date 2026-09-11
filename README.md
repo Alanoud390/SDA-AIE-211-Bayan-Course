@@ -1,11 +1,11 @@
-## Bayan | بيان
+# Bayan | بيان
 ---
 
-# SDA-AIE-211 Bayan Course
+## Arabic Text Processing and Evaluation
 
-This repository contains my solutions and implementations for the SDAIA Academy Bayan Course labs. The project includes data preprocessing, dataset preparation, evaluation scripts, and experiments completed throughout the course.
+This project implements a set of Arabic text preprocessing and evaluation tools designed to support natural language processing workflows. The work includes building normalization functions for Arabic text, analyzing dialect-related challenges, conducting preprocessing experiments, and documenting benchmarking results.
 
-The work focuses on applying practical AI and machine learning concepts while following software engineering best practices such as version control, documentation, and reproducible experimentation.
+The repository contains custom preprocessing modules, evaluation scripts, experimental results, and supporting documentation. The goal is to improve text quality and consistency while providing a reproducible framework for testing and comparing preprocessing approaches.
 
 Course materials and resources are provided by SDAIA Academy:
 https://github.com/SDAIAAcademy
