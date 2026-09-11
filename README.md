@@ -7,7 +7,7 @@ This project implements a set of Arabic text preprocessing and evaluation tools 
 
 The repository contains custom preprocessing modules, evaluation scripts, experimental results, and supporting documentation. The goal is to improve text quality and consistency while providing a reproducible framework for testing and comparing preprocessing approaches.
 
-Course materials and resources are provided by SDAIA Academy:
+materials and resources are provided by SDAIA Academy:
 https://github.com/SDAIAAcademy
 
 
